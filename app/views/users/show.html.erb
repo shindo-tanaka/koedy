@@ -1,0 +1,152 @@
+<div class="user-back-background">
+  <div class="user-background">
+    <div class="user-container">
+      <div class="user-info">
+        <div class="user-info-title">
+          <h1><i class="fas fa-info-circle"></i>ユーザー情報</h1>
+        </div>
+        <div class="user-info-setting">
+          <% if current_user.id == @user.id %>                  
+            <%= link_to edit_user_registration_path, method: :get do %>
+              <i class="fas fa-cog"></i>
+            <% end %>
+            設定
+          <% end %>
+        </div>
+      </div>
+      <div class="user-item">
+        <p><i class="fas fa-user"></i>名前 : <%= @user.name %></p>
+        <p><i class="fas fa-envelope"></i>メールアドレス : <%= @user.email %></p>
+        <p><i class="fas fa-address-card"></i>プロフィール : <%= @user.profile %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% if user_signed_in? && current_user.id == 4 %>  
+  <div class="binder-out">
+    <div class="binder">
+    <div class="headline-userpost">
+      <h2>管理者の投稿リスト</h2>
+    </div>
+      <div class="binder-in">
+        <% @user.posts.each do |t| %>
+          <p>
+            <div class="post-container">
+              <div class="post-main-container">
+                <div class="post-sub-container1">
+                  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                </div>
+                <div class="post-sub-container2">
+                  <div class="show-post-item1">
+                    <div class="paw">
+                      <i class="fas fa-paw"></i>
+                    </div>
+                    <div class="post-item-name">
+                      <%= t.name %>
+                    </div>
+                  </div>
+                  <div class="post-item2">
+                    <div class="post-item-family">
+                      <b>種類：</b>
+                      <%= t.family %>
+                    </div>
+                    <div class="post-item-size">
+                      <b>サイズ：</b>
+                      <%= t.size %>
+                    </div>
+                  </div>
+                  <div class="post-item3">
+                    <div class="post-item-price">
+                      <b>価格：</b>
+                      <%= t.price %>
+                      円
+                    </div>
+                    <div class="post-item-cost">
+                      <b>養育費：</b>月々約
+                      <%= t.m_cost %>
+                      円
+                    </div>
+                    <div class="post-item-time">
+                      <b>養育時間：</b>１日約
+                      <%= t.m_time %>
+                      時間
+                    </div>
+                  </div>
+                  <div class="post-item4-detail">
+                    <b>特徴：</b>
+                    <%= t.detail %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<br><br>
+
+
+<div class="binder-out">
+    <div class="binder">
+    <div class="headline-fav">
+      <h2>お気に入りリスト</h2>
+    </div>
+    <div class="binder-in">
+      <% @user.liked_posts.each do |t| %>
+        <p>
+            <div class="post-container">
+              <div class="post-main-container">
+                <div class="post-sub-container1">
+                  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                </div>
+                <div class="post-sub-container2">
+                  <div class="post-item1">
+                    <div class="post-item-name">
+                      <%= t.name %>
+                    </div>
+                  </div>
+                  <div class="post-item2">
+                    <div class="post-item-family">
+                      <b>種類：</b>
+                      <%= t.family %>
+                    </div>
+                    <div class="post-item-size">
+                      <b>サイズ：</b>
+                      <%= t.size %>
+                    </div>
+                  </div>
+                  <div class="post-item3">
+                    <div class="post-item-price">
+                      <b>価格：</b>
+                      <%= t.price %>
+                      円
+                    </div>
+                    <div class="post-item-cost">
+                      <b>養育費：</b>月々約
+                      <%= t.m_cost %>
+                      円
+                    </div>
+                    <div class="post-item-time">
+                      <b>養育時間：</b>１日約
+                      <%= t.m_time %>
+                      時間
+                    </div>
+                  </div>
+                  <div class="post-item4-detail">
+                    <b>特徴：</b>
+                    <%= t.detail %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to "Pet一覧に戻る", search_posts_path, class: "pet-list" %>

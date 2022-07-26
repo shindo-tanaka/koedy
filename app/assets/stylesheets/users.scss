@@ -1,0 +1,315 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//ログインページCSS
+.headline h2{
+    margin-top: 10px;
+    margin-left: 30px;
+    background: linear-gradient(transparent 50%, #ffce5b 50%);
+    width: 335px;
+}
+
+.Log-in{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field{
+    margin-right: 240px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 650px;
+}
+
+input[type="email"]{
+    width: 400px;
+    font-size: 20pt;
+}
+
+input[type="password"]{
+    width: 400px;
+    font-size: 20pt;
+}
+
+.field-rem{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.submit-login{
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width         : 330px;
+}
+
+.submit-login:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+
+.Render{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up a{
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width         : 300px;
+    text-decoration: none;
+}
+
+.sign-up a:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #F6F2E9;     /* 文字色     */
+}
+
+.password a{
+    text-decoration: none;
+    margin-top: 30px;
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 14pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width: 300px;
+}
+
+.password a:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #F6F2E9;     /* 文字色     */
+}
+
+//新規登録ページCSS
+.headline-signup h2{
+    margin-top: 10px;
+    margin-left: 30px;
+    background: linear-gradient(transparent 50%, #ffce5b 50%);
+    width: 100px;
+}
+
+.Sign-up{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"]{
+    width: 400px;
+}
+
+.field-signup{
+    margin-top: 60px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.submit-signup{
+    margin-top: 30px;
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width: 330px;
+}
+
+.submit-signup:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+.headline-to-login h2{
+    margin-top: 10px;
+    margin-left: 30px;
+    background: linear-gradient(transparent 50%, #ffce5b 50%);
+    width: 370px;
+}
+
+.log-in:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #4D4445;     /* 背景色     */
+    background    : #F6F2E9;     /* 文字色     */
+}
+
+.log-in a{
+    text-decoration: none;
+    color: #ffffff;
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width: 300px;
+}
+
+.log-in a:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #F6F2E9;     /* 文字色     */
+}
+
+//編集ページCSS
+.headline-edit h2{
+    margin-top: 10px;
+    margin-left: 30px;
+    background: linear-gradient(transparent 50%, #ffce5b 50%);
+    width: 170px;
+}
+
+.edit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field-edit{
+    margin-top: 60px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 900px;
+}
+
+.edit-profile{
+    width: 403px;
+}
+
+.edit-password{
+    height: 20px;
+}
+
+.edit-cur-password{
+    height: 20px;
+}
+
+.headline-cancel h3{
+    margin-top: 60px;
+    margin-left: 30px;
+    background: linear-gradient(transparent 50%, #ffce5b 50%);
+    width: 140px;
+}
+
+.edit-cancel{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-cancel{
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 10pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 10px 10px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width: 200px;
+}
+
+.button-cancel:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+.edit-back{
+    margin-top: 30px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-back-button{
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 10pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 10px 10px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width: 175px;
+    text-decoration: none;
+}
+
+.edit-back-button:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}

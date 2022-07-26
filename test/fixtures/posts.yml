@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  family: MyString
+  name: MyString
+  size: MyString
+  expence: MyString
+  m_time: MyString
+  m_time: MyString
+  m_cost: MyString
+  detail: MyText
+  address: MyString
+
+two:
+  family: MyString
+  name: MyString
+  size: MyString
+  expence: MyString
+  m_time: MyString
+  m_time: MyString
+  m_cost: MyString
+  detail: MyText
+  address: MyString

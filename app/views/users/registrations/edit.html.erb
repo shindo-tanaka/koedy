@@ -1,0 +1,70 @@
+<div class="headline-edit"> 
+  <h2>アカウント編集</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div class="edit">
+    <div class="field-edit">
+      <%= f.label :お名前 %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
+    <div class="field-edit">
+      <%= f.label :プロフィール %><br />
+      <%= f.text_area :profile, autofocus: true, class: "edit-profile" %>
+    </div>
+
+    <div class="field-edit">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field-edit">
+      <div class="field-edit-new">
+        <div class="field-edit-new-pass">
+          <%= f.label :新しいパスワード %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %>
+        </div>
+        <div class="field-edit-new-change">
+          <i>※変更しない場合は空欄にしてください</i>
+        </div>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password", class: "edit-password" %>
+    </div>
+
+    <div class="field-edit">
+      <%= f.label :パスワード再入力 %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field-edit">
+      <div class="field-edit-cur">
+        <%= f.label :現在のパスワード %> <br><i>※変更するためには現在のパスワードを入力してください</i><br />
+      </div>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "edit-cur-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "更新", class: "submit-signup" %>
+    </div>
+  </div>
+<% end %>
+
+<div class="headline-cancel">
+  <h3>アカウント削除</h3>
+</div>
+
+<div class="edit-cancel">
+  <p>アカウントの削除をする方は<br>こちらをクリック↓ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button-cancel' %></p>
+</div>
+<div class="edit-back">
+  <%= link_to "Back", :back, class: "edit-back-button" %>
+</div>

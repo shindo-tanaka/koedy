@@ -1,0 +1,169 @@
+<div class="search-main">
+  <div class="search">
+    <div class="search-sub">
+      <div class="search-free">
+        <h3>フリーワード検索</h3>
+      </div>
+      <%= form_with(scope: :search, url: search_posts_path, method: :get, local: true) do |f| %>
+        <div class="search-field-tag">
+          <%= text_field_tag :search1 %>
+        </div>
+        <div class="search-detail">
+          <div class="type-size">
+            <div class="type">
+              <%= f.label :family, "種類",  {class: 'type-label'} %>
+              <li><%= f.select :family, [['犬', '犬'], ['猫', '猫'], ['ハムスター', 'ハムスター'], ['齧歯類(ハムスター以外)', '齧歯類'],['鳥', '鳥']], include_blank: '選択してください', value: @search_params[:family] %><li>
+            </div>
+            <div class="size">
+              <%= f.label :size, "サイズ" %>
+              <li><%= f.select :size, [['超小型', '超小型'], ['小型', '小型'], ['中型', '中型'], ['大型', '大型']], include_blank: '選択してください', value: @search_params[:size] %><li>
+            </div>
+          </div>
+          <div class="price-cost-time">
+            <div class="price">
+              <%= f.label :price, "価格" %>
+              <li><%= f.select :price, [['1万以下', '1万以下'], ['1万~5万', '1万~5万'], ['5万~10万', '5万~10万'], ['10万~20万', '10万~20万'], ['20万~30万', '20万~30万'], ['40万~50万', '40万~50万'], ['50万~100万', '50万~100万'], ['100万以上', '100万以上']], include_blank: '選択してください', value: @search_params[:price] %><li>
+            </div>
+            <div class="cost">
+              <%= f.label :m_cost, "養育費" %>
+              <div class="cost-select">
+                月々約
+                <%= f.select :m_cost, [['3,000', '3,000'], ['5,000', '5,000'], ['10,000', '10,000'], ['15,000', '15,000'], ['20,000', '20,000'], ['30,000', '30,000'], ['50,000', '50,000'], ['10万', '10万']], include_blank: '選択してください', value: @search_params[:m_cost] %>
+                円ほど
+              </div>
+            </div>
+            <div class="time">
+              <%= f.label :m_time, "養育時間" %>
+              <div class="time-select">
+                １日約
+                <%= f.select :m_time, [['1時間以下', '1'], ['2時間', '2'], ['3時間', '3'], ['4時間', '4'], ['5時間', '5'],['6時間', '6']], include_blank: '選択してください', value: @search_params[:m_time] %>
+                ほど
+              </div>
+            </div>
+          </div>
+          <div class="character">
+            <div class='character-title'>
+              特徴
+            </div>
+            <div class="character-tag">
+              <% Tag.all.each do |t| %>
+                <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="search-button">
+          <%= submit_tag 'この条件で検索', :class => "search-button-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+  <% if user_signed_in? && current_user.id == 4 %>  
+    <%= text_field_tag :tag %>
+    <%= submit_tag 'タグを追加' %>
+  <% end %>
+<% end %>
+
+<br>
+  
+<div class="results">
+  <h1>検索結果</h1>
+</div>
+
+<div class="binder-out">
+  <div class="binder">
+      <div class="headline-pet">
+        <h2>ペットリスト</h2>
+      </div>
+    <div class="binder-in">
+
+      <div class="posts-container">
+        <% @posts.each do |t| %>
+          <div class="post-container">
+            <div class="post-main-container">
+              <div class="post-sub-container1">
+                <%= image_tag t.image_url, size: "250x200" if t.image? %>
+              </div>
+              <div class="post-sub-container2">
+                <div class="post-item1">
+                  <div class="post-item1-sub">
+                    <div class="paw">
+                      <i class="fas fa-paw"></i>
+                    </div>
+                    <div class="post-item-name">
+                      <%= t.name %>
+                    </div>
+                    <div class= "favorite">
+                    <!--いいね機能スタート-->
+                      <% if user_signed_in? %>
+                        <% if current_user.already_liked?(t) %>
+                            <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                              <div class="likes-count"><i class="fas fa-star"></i>お気に入り</div>
+                            <% end %>
+                        <% else %>
+                            <%= link_to post_likes_path(id: t.id, post_id: t.id), {method: :post, class: "nav-link"} do %>
+                              <div class="likes-count"><i class="far fa-star"></i>お気に入り</div>
+                            <% end %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to new_user_session_path, {method: :get, class: "nav-link"} do %>
+                          <div class="likes-count"><i class="far fa-star"></i>お気に入り</div>
+                        <% end%>
+                      <% end %>
+                    <!--いいね機能エンド-->
+                    </div>
+                  </div>
+                  <div class="edit-delete">
+                  <!--編集・削除スタート-->
+                    <% if user_signed_in? && current_user.id == 4 %>
+                      <%= link_to edit_post_path(t.id), method: :get do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                      <%= link_to  post_path(t.id), method: :delete do %>
+                        <i class="fas fa-trash-alt"></i>
+                      <% end %>
+                    <% end %>
+                  <!--編集・削除エンド-->
+                  </div>
+                </div>
+                <div class="post-item2">
+                  <div class="post-item-family">
+                    <b>種類：</b>
+                    <%= t.family %>
+                  </div>
+                  <div class="post-item-size">
+                    <b>サイズ：</b>
+                    <%= t.size %>
+                  </div>
+                </div>
+                <div class="post-item3">
+                  <div class="post-item-price">
+                    <b>価格：</b>
+                    <%= t.price %>
+                    円
+                  </div>
+                  <div class="post-item-cost">
+                    <b>養育費：</b>月々約
+                    <%= t.m_cost %>
+                    円
+                  </div>
+                  <div class="post-item-time">
+                    <b>養育時間：</b>１日約
+                    <%= t.m_time %>
+                    時間
+                  </div>
+                </div>
+                <div class="post-item4-detail">
+                  <b>特徴：</b>
+                  <%= t.detail %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+.user-back-background{
+    background-image: url(mypage.jpeg);
+    width: 100%;
+    background-position: 40% 55%;
+    background-color:rgba(255, 255, 255, 0.545);
+    background-blend-mode:lighten;
+}
+
+.user-background{
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #fff;
+    border: solid 2px #ccc;
+    border-radius: 20px;
+    width: 520px;
+    height: 200px;
+    box-shadow: 5px 5px 10px 5px rgba(66, 64, 64, 0.7);
+}
+
+.user-container{
+    margin-top: 20px;
+    background-color: #fff;
+    background-image: linear-gradient(180deg, #ccc 1px, transparent 1px); /* 罫線の色と太さ */
+    background-size: 100% 2.5em; /* 行の高さ */
+    line-height: 2.5em; /* 文字の高さ */
+    width: 500px;
+}
+
+.user-info{
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Hannotate SC';
+    font-size: small;
+    width: 95%;
+}
+
+.fa-cog{
+    margin-top: 8px;
+    font-size: 18pt;
+    transition: 1s all;
+    color: #666666;
+}
+
+.fa-cog:hover{
+    transform: scale(1.5,1.5) rotateZ(90deg);
+    transition: 1s all;
+}
+
+.user-item{
+    margin-top: 5px;
+    margin-left: 20px;
+    font-family: 'Hannotate SC';
+}
+
+.headline-userpost{
+    margin-top: 10px;
+    position: absolute;
+    left: 30px;
+    background-color: #57defc;
+    display: flex;
+    justify-content: center;
+    border: #4D4445;
+}
+
+.headline-userpost h2{
+    margin-left: 10px;
+    width: 240px;
+    font-family: 'Hannotate SC';
+}
+
+.binder-out{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.binder{
+    width: 80%;
+    border: solid;
+    background-color: #E0B987;
+    border-radius: 10px;
+}
+
+.binder-in{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-top: solid;
+}
+
+.post-container{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 93.75%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: solid 2px #ccc;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px 5px rgba(66, 64, 64, 0.7);
+    transition: 0.4s all;
+}
+
+.post-container:hover{
+    transform: scale(1.2,1.2);
+    transition: 0.4s all;
+}
+
+.post-main-container{
+    margin-top: 10px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #fff;
+    background-image: linear-gradient(180deg, #ccc 1px, transparent 1px); /* 罫線の色と太さ */
+    background-size: 100% 2.5em; /* 行の高さ */
+    line-height: 2.5em; /* 文字の高さ */
+    width: 95%;
+}
+
+.post-sub-container2{
+    display: inline-flex;
+    flex-direction: column;
+    font-family: 'Hannotate SC';
+    width: 75%;
+    height: 100%;
+}
+
+.show-post-item1{
+    display: flex;
+    width: 1000px;
+}
+
+.post-item-name{
+    font-family: 'Hannotate SC';
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.post-item2{
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-around;*/
+    width: 100%;
+}
+
+.post-item3{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.headline-fav{
+    margin-top: 10px;
+    position: absolute;
+    left: 30px;
+    background-color: #EF91F0;
+    display: flex;
+    justify-content: center;
+    border: #4D4445;
+}
+
+.headline-fav h2{
+    margin-left: 10px;
+    width: 210px;
+    font-family: 'Hannotate SC';
+}
+
+.pet-list{
+    margin-top: 100px;
+    margin-left: 500px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    font-weight   : bold;
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : #906F51;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #4D4445;    /* 枠の指定 */
+    width: 300px;
+}
+
+.pet-list:hover{
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #906F51;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}

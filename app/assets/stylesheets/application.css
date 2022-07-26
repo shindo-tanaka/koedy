@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+    padding: 0;
+    margin: 0;
+  }
+  header {
+    z-index: 1;
+    margin-top: -70px;
+    background-color: #4D4445;
+    background: linear-gradient(#4D4445, #87797c);
+    width: 100%;
+    height: 70px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+  }
+
+  .header-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+  }
+
+  header h1 {
+    margin-left: 50px;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+  }
+
+  header a {
+    color: white; 
+    text-decoration: none; 
+  }
+
+  header ul {
+    display: flex;
+  }
+
+  header li {
+    margin-right: 20px;
+    list-style: none;
+  }
+
+  header li:hover{
+    transform: scale(1.2,1.2);
+    
+  }
+
+  .fa-search{
+    color: #fff;
+    align-self: center;
+  }
+
+  .fa-user{
+    color: #fff;
+    align-self: center;
+  }
+
+  .fa-sign-out-alt{
+    color: #fff;
+    align-self: center;
+  }
+
+  .fa-plus-square{
+    color: #fff;
+    align-self: center;
+  }
+
+  .fa-user-plus{
+    color: #fff;
+    align-self: center;
+  }
+
+  .fa-sign-in-alt{
+    color: #fff;
+    align-self: center;
+  }
+
+  body{
+    background-color: #F6F2E9;
+  }
+
+  .yield{
+    margin-top: 70px;
+  }
+
+  footer{
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background-color: #4D4445;
+    background: linear-gradient(#87797c, #4D4445);
+  }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Koedy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-title">
+        <h1>Koedy</h1>
+        <% if user_signed_in? && current_user.id == 4 %> 
+          &nbsp;--管理者モード--
+        <% end %>
+      </div>
+      <div class="header-list">
+        <ul>
+          <li><%= link_to "トップ", root_path %></li>
+          <li><i class="fas fa-search"></i><%= link_to "検索", search_posts_path %></li>
+          <% if user_signed_in? %>
+            <li><i class="fas fa-user"></i><%= link_to "マイページ", user_path(current_user.id) %></li>
+            <li><i class="fas fa-sign-out-alt"></i><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% if user_signed_in? && current_user.id == 4 %>  
+              <li><i class="far fa-plus-square"></i><%= link_to "新規投稿へ", new_post_path %></li>
+            <% end %> 
+          <% else %>
+            <li><i class="fas fa-user-plus"></i><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <div class="yield">
+      <%= yield %>
+    </div>  
+    <footer>
+      <p>Copyright © 2022 GeekSalon All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

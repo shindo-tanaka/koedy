@@ -1,0 +1,144 @@
+
+<h3>Pet一覧</h3>
+<div class="search-main">
+  <div class="search">
+    <div class="search-free">
+      <h3>フリーワード検索</h3>
+    </div>
+    <div class="search-button">
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+
+        <%= text_field_tag :search %>
+        <div class="search-detail">
+          <div class="type-size">
+            種類
+            <%= select_tag 'search1' ,options_for_select([['---選択してください---', ''], ['犬', '犬'], ['猫', '猫'], ['ハムスター', 'ハムスター'],['鳥', '鳥']]) %>
+            サイズ
+            <%= select_tag 'search2' ,options_for_select([['---選択してください---', ''], ['超小型', '超小型'], ['小型', '小型'], ['中型', '中型'], ['大型', '大型']]) %>
+          </div>
+          <div class="price-cost-time">
+            価格
+            <li><%= select_tag 'search3' ,options_for_select([['---選択してください---', ''], ['10万以下', '10万以下'], ['10万~20万', '10万~20万'], ['20万~30万', '20万~30万'], ['40万~50万', '40万~50万'], ['50万~100万', '50万~100万'], ['100万以上', '100万以上']]) %><li>
+            養育費
+
+            養育時間
+          </div>
+          <div class="character">
+            ペットの特徴
+          </div>
+        </div>
+        <%= submit_tag '検索する'  %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? && current_user.id == 2 %>  
+  <%= link_to "新規投稿へ", new_post_path %>
+<% end %> 
+
+<br>
+  
+<div class="results">
+  <h1>検索結果</h1>
+</div>
+
+<div class="posts-container">
+  <% @posts.each do |t| %>
+    <div class="post">
+      <div class="post-container">
+      <div class="post-main-container">
+        <div class="post-sub-container1">
+          <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        </div>
+        <div class="post-sub-container2">
+          <div class="post-item1">
+            <div class="post-item1-sub">
+              <div class="paw">
+                <i class="fas fa-paw"></i>
+              </div>
+              <div class="post-item-name">
+                <%= t.name %>
+              </div>
+              <div class= "favorite">
+              <!--いいね機能スタート-->
+                <% if user_signed_in? %>
+                  <% if current_user.already_liked?(t) %>
+                      <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                        <div class="likes-count"><i class="fas fa-star"></i></i><%= t.likes.count %></div>
+                      <% end %>
+                  <% else %>
+                      <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                        <div class="likes-count"><i class="far fa-star"></i><%= t.likes.count %></div>
+                      <% end %>
+                  <% end %>
+                <% else %>
+                <div class="likes-count"><i class="far fa-star"></i><%= t.likes.count %></div>
+                <% end %>
+              <!--いいね機能エンド-->
+              </div>
+            </div>
+            <div class="edit-delete">
+            <!--編集・削除スタート-->
+              <% if user_signed_in? && current_user.id == 2 %>
+                <%= link_to "編集する", edit_post_path(t.id) %>
+                <%= button_to "削除する", post_path(t.id), method: :delete %>
+              <% end %>
+            <!--編集・削除エンド-->
+            </div>
+          </div>
+          <div class="post-item2">
+            <div class="post-item-family">
+              <b>種類：</b>
+              <%= t.family %>
+            </div>
+            <div class="post-item-size">
+              <b>サイズ：</b>
+              <%= t.size %>
+            </div>
+          </div>
+          <div class="post-item3">
+            <div class="post-item-price">
+              <b>価格：</b>
+              <%= t.price %>
+              円
+            </div>
+            <div class="post-item-cost">
+              <b>養育費：</b>月々約
+              <%= t.m_cost %>
+              円
+            </div>
+            <div class="post-item-time">
+              <b>養育時間：</b>１日約
+              <%= t.m_time %>
+              時間
+            </div>
+          </div>
+          <div class="post-item4-detail">
+            <b>特徴：</b>
+            <%= t.detail %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <% Tag.all.each do |t| %>
+        <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+  <% end %>
+
+  
+
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <% if user_signed_in? && current_user.id == 2 %>  
+      <%= text_field_tag :tag %>
+      <%= submit_tag 'タグを追加' %>
+    <% end %>
+  <% end %>
+</div>
+
+

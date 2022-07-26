@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+  .main {
+    display: flex;
+    background-image: url("top.jpg") ;
+    background-size: cover;
+    background-color:rgba(255, 255, 255, 0.545);
+    background-blend-mode:lighten;
+    width: 100%;
+    height: 800px;
+  }
+  
+  .main-content {
+    margin: auto;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .main-text {
+    margin-top: -710px;
+    margin-bottom: 300px;
+    font-size: 200px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    stroke: #000000;
+    stroke-width: 1cm;
+    stroke-linejoin: round;
+    color: #4D4445;
+  }
+  
+  .main-text2 {
+    margin-top: -80px;
+    margin-bottom: 15px;
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffe312;
+  }
+
+  .find-pet{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-decoration: none;
+    color: #272b25;
+    background-color: #ffffffac;
+    border-radius: 30px;
+    border: solid #000000;
+    height: 90px;
+    width: 400px;
+    font-family: "Reenie Beanie", cursive;
+    font-size: 30px;
+  }
+
+  .find-pet:hover{
+    color: #fff;
+    background-color: rgba(91, 91, 86, 0.827);
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  .top-button{
+    margin-top: -70px;
+  }
+
+  .about{
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+  }
+  
+  .about-header{
+    margin-top: 180px;
+    color: #4D4445;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
+
+  .how-to-use{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border:solid ;
+    font-size: 100px;
+  }
+
+  .how-to-use-header{
+    color: #4D4445;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center
+  }
+
+  .how-to-use-first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .how-to-use-first-content{
+    background-color: #fff;
+    width: 50%;
+  }
+
+  .how-to-use-first-content h2{
+    font-size: 60px;
+  }
+
+  .how-to-use-first-image{
+    width: 50%;
+  }
+
+  .how-to-use-second{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }

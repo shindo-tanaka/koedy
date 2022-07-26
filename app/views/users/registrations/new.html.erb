@@ -1,0 +1,43 @@
+<div class="headline-signup">
+  <h2>新規登録</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  <div class="Sign-up">
+    <div class="field-signup">
+      <%= f.label :お名前 %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field-signup">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field-signup">
+      <%= f.label :パスワード %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field-signup">
+      <%= f.label :パスワード再入力 %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "新規登録", class: "submit-signup" %>
+    </div>
+  </div>  
+<% end %>
+
+<div class="headline-to-login">
+  <h2>すでに登録がお済みの方はこちら</h2>
+</div>
+
+<div class="Render">
+  <%= render "users/shared/links" %>
+</div>
