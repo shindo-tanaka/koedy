@@ -46,6 +46,7 @@ class PostsController < ApplicationController
             @posts = @posts.where(id: post_ids) if post_ids.present?
         end
 
+
     end
 
 

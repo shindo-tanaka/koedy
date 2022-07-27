@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="character">
-            <div class='character-title'>
+            <div class="character-title">
               特徴
             </div>
             <div class="character-tag">
@@ -99,7 +99,7 @@
                     <!--いいね機能スタート-->
                       <% if user_signed_in? %>
                         <% if current_user.already_liked?(t) %>
-                            <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                            <%= link_to post_like_path(id: t.id, post_id: t.id), {method: :delete, class: "nav-link"} do %>
                               <div class="likes-count"><i class="fas fa-star"></i>お気に入り</div>
                             <% end %>
                         <% else %>
